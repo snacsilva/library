@@ -64,10 +64,10 @@
         <% end %>
       </nav>
     <% if notice %>
-      <p class="alert alert-success" id="notice"><%= notice %></p>
+      <p class="py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200" role="alert"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger" role="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>

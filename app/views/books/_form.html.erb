@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <form method="POST" action="action.php">
+                        <div class="mb-4">
+                            <label class="text-xl text-gray-600">Título <span class="text-red-500">*</span></label></br>
+                            <%= form.text_field :title, type:"text", class:"border-2 border-gray-300 p-2 w-full"%>
+                          </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-xl text-gray-600">Autor <span class="text-red-500">*</span></label></br>
+                            <%= form.text_field :author, type:"text", class:"border-2 border-gray-300 p-2 w-full"%>
+                        </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+                        <div class="mb-4">
+                            <label class="text-xl text-gray-600">Imagem<span class="text-red-500">*</span></label></br>
+                            <%= form.text_field :image, type:"text", class:"border-2 border-gray-300 p-2 w-full", placeholder:"Inserir o link de uma imagem"%>
+                        </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+                        <div class="mb-8">
+                            <label class="text-xl text-gray-600">Descrição <span class="text-red-500">*</span></label></br>
+                            <%= form.text_area :description, class:"shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"%>
+                        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                        <div class="flex p-1">
+                          <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>

@@ -10,6 +10,6 @@ require 'faker'
 User.create!(email: 'admin@admin.com.br', password: '12345678')   
 
 15.times do 
-    Book.create!(title: Faker::Book.unique.title , author: Faker::Book.unique.author , description: Faker::Lorem.unique.paragraph , image: Faker::LoremFlickr.image)
+    Book.create!(title: Faker::Book.unique.title , author: Faker::Book.unique.author , description: Faker::Lorem.unique.paragraphs , image: Faker::LoremFlickr.image)
 end
 
