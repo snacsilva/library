@@ -13,23 +13,62 @@
 
   </head>
 
-  <body class="container bg-gray-300">
-    <div class="md:mx-auto text-center sm:text-left">
-      <% if user_signed_in? %>
-        Logado como: <strong><%= current_user.email %></strong>.
-        <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-      <% if notice %>
-        <p class="alert alert-success" id="notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <p class="navbar-text float-right">
-      <%= yield %>
-    </div>
+  <body class="bg-gray-300">
+      <nav class="w-full flex bg-gray-800 lg:px-8 px-4 py-4 text-white text-base items-center justify-between md:justify-start md:relative absolute">
+        <div class="flex text-xl font-bold tracking-wider space-x-2 md:mx-0 mx-auto">
+            <a href="/" class="px-4 py-2">
+              <title> Library Search </title>
+              <img class=" w-10 h-10" src="https://cdn0.iconfinder.com/data/icons/education-and-learning-10/64/Books-512.png" />
+              <span>
+                  Library Search
+              </span>
+            </a>
+        </div>
+        <% if user_signed_in? %>
+          <ul class="text-gray-300 flex md:space-x-2 p-2 md:px-0 md:space-y-0 space-y-1 md:ml-4 md:relative absolute top-full bg-gray-800 flex-col md:flex-row left-0 right-0">
+              <li>
+                  <a href="/" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Dashboard</a>
+              </li>
+              <li>
+                  <a href="/books/new" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Novo Livro</a>
+              </li>
+              <li>
+                  <a href="/users/new" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Novo usuário</a>
+              </li>
+          </ul>
+
+          <div class="ml-auto flex space-x-2 items-center">
+              <div class="flex items-center relative space-y-1">
+                <div class="dropdown inline-block relative">
+                  <button class="rounded-full overflow-hidden focus:ring-2 focus:ring-white focus:outline-none" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                      <img class=" w-8 h-8" src="https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-512.png" aria-hidden="true" />
+                  </button>
+                  <ul class="dropdown-menu hidden absolute rounded-lg shadow-xl overflow-hidden top-full right-0 bg-white text-gray-700 w-48 flex-col">
+                      <li>
+                          <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'w-full block px-4 py-2 hover:bg-black-100' %>
+                      </li>
+                      <li>
+                          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'w-full block px-4 py-2 hover:bg-black-100'  %>
+                      </li>
+                  </ul>
+                </div>
+                </div>
+              </div>
+          </div>
+        <% else %>
+          <div class="ml-auto flex space-x-2 items-center">
+            <div class="flex items-center relative space-y-1">
+                <a href="/users/sign_in" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Login</a>
+            </div>
+          </div>
+        <% end %>
+      </nav>
+    <% if notice %>
+      <p class="alert alert-success" id="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
   </body>
 </html>
