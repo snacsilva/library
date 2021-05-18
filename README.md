@@ -1,26 +1,23 @@
-# library
+# Library
 
-# README
+This is a simple project of a library. Where have a several books listed and you can search by `title` or `author`. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The books has a `title`, `author`, `image` and `description`. And just the `Admin` can `create`,`update` and `delete`.
+## Built With
 
-Things you may want to cover:
+* Architecture: MVC, as a convention in RoR, and Rest API, for client-server communication with the app.
+* Test: RSpec
+* Database: Postgresql.
+* Frameworks: Ruby on Rails 6
+* Layout: Tailwind
 
-* Ruby version
+For create the `Admin` and a list of `books` run:
+```
+rails db:seed
+```
+Admin credentials:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+user: admin@admin.com.br
+password: 12345678
+```
