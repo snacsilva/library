@@ -13,8 +13,8 @@
 
   </head>
 
-  <body class="bg-gray-300">
-      <nav class="w-full flex bg-gray-800 lg:px-8 px-4 py-4 text-white text-base items-center justify-between md:justify-start md:relative absolute">
+  <body class="bg-gray-300 md:mx-auto">
+      <nav class="w-full flex bg-gray-700 lg:px-8 px-4 py-4 text-white text-base items-center justify-between md:justify-start md:relative absolute">
         <div class="flex text-xl font-bold tracking-wider space-x-2 md:mx-0 mx-auto">
             <a href="/" class="px-4 py-2">
               <title> Library Search </title>
@@ -25,16 +25,16 @@
             </a>
         </div>
         <% if user_signed_in? %>
-          <ul class="text-gray-300 flex md:space-x-2 p-2 md:px-0 md:space-y-0 space-y-1 md:ml-4 md:relative absolute top-full bg-gray-800 flex-col md:flex-row left-0 right-0">
+          <ul class="text-gray-300 flex md:space-x-2 p-2 md:px-0 md:space-y-0 space-y-1 md:ml-4 md:relative absolute top-full bg-gray-700 flex-col md:flex-row left-0 right-0">
               <li>
-                  <a href="/" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Dashboard</a>
+                  <a href="/" class="font-semibold px-4 py-2 hover:bg-gray-800 hover:text-white rounded-lg block" >Dashboard</a>
               </li>
               <li>
-                  <a href="/books/new" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Novo Livro</a>
+                  <a href="/books/new" class="font-semibold px-4 py-2 hover:bg-gray-800 hover:text-white rounded-lg block" >Novo Livro</a>
               </li>
-              <li>
+              <%# <li>
                   <a href="/users/new" class="font-semibold px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg block" >Novo usuário</a>
-              </li>
+              </li> %>
           </ul>
 
           <div class="ml-auto flex space-x-2 items-center">
@@ -63,12 +63,14 @@
           </div>
         <% end %>
       </nav>
-    <% if notice %>
-      <p class="py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200" role="alert"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger" role="alert"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <div class="px-4 sm:px-8 lg:px-16 xl:px-20 mt-6">
+      <% if notice %>
+        <p class="py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200" role="alert"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger" role="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
